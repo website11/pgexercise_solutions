@@ -10,3 +10,6 @@ SELECT * FROM cd.facilities WHERE membercost != 0
 --Question 4: Control which rows are retrieved - part 2
 SELECT cd.facilities.facid, cd.facilities.name, cd.facilities.membercost,
 cd.facilities.monthlymaintenance FROM cd.facilities WHERE membercost != 0 AND (membercost < (monthlymaintenance/50))
+
+--Question 5: Basic string searches
+SELECT * FROM cd.facilities WHERE cd.facilities.name LIKE '%Tennis%'
