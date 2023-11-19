@@ -25,8 +25,20 @@ ELSE 'cheap'
 END AS cost
 FROM cd.facilities
 
-  --Question 8: Working with dates
+--Question 8: Working with dates
 SELECT memid,surname,firstname,joindate FROM cd.members WHERE joindate > '2012-09-01'
 
 --Question 9: Removing duplicates, and ordering results
 SELECT DISTINCT surname FROM cd.members ORDER BY surname limit 10
+
+--Question 10: Combining results from multiple queries
+SELECT surname FROM cd.members
+UNION
+SELECT name FROM cd.facilities
+
+--Question 11: Simple aggregation
+SELECT MAX(joindate) FROM cd.members
+
+--Question 12: More aggregation
+SELECT firstname,surname,joindate FROM cd.members WHERE joindate = (SELECT MAX(joindate) FROM cd.members)
+
